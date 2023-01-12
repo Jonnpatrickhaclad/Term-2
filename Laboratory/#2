@@ -2,7 +2,7 @@
 
 import java.io.*;
 
-public class Act2 {
+public class LabAct2 {
     public static void main(String[] args) throws IOException, FileNotFoundException {
         File inFile = new File("dummy.txt");
         BufferedReader br = new BufferedReader(new FileReader(inFile));
