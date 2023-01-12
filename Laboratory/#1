@@ -1,0 +1,55 @@
+// 1. Write a Java program that will read the input file (data.txt) and add all the data in the text.
+    // The program will also create a file (sum.txt) and write the sum in the file created.
+
+import java.io.*;
+import java.util.Scanner;
+import java.util.ArrayList;
+
+public class  LabAct1{
+    public static void main(String[] args) throws FileNotFoundException, IOException  {
+        
+        File inputFile = new File("data.txt");
+        System.out.println("Input File path: "+ inputFile.getAbsolutePath());
+        Scanner inFile = new Scanner(inputFile);
+
+        File outFile = new File("sum.txt");
+        System.out.println("Output File path: "+ outFile.getAbsolutePath());
+        FileWriter fw = new FileWriter(outFile, false);
+        
+
+        try{
+
+            //ArrayList<String> listS = new ArrayList<String>();
+            ArrayList<Integer> listI = new ArrayList<Integer>();
+
+            while(inFile.hasNextLine()){
+                listI.add(inFile.nextInt());
+            }
+
+            System.out.println("Data: " + listI);
+            System.out.println("");
+
+            int total = 0;
+            for (int index = 0; index < listI.size(); index++) {
+                total += listI.get(index);
+            }
+            
+            System.out.println("The sum is: " + total);
+            System.out.println(" ");
+
+            fw.write("Data Input: "+ listI + "\nThe sum of Data Input: " + total );
+
+        }
+            // to check for errors
+        catch(Exception e){
+            System.out.println("sorry there is an error: "+ e.getMessage());
+
+        }
+            
+        finally{
+            inFile.close();
+            fw.close();
+            fw.flush();
+        }
+    }
+}
