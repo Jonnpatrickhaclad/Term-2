@@ -1,0 +1,34 @@
+// 2. Write a Java program that will read and display in the console the first five lines of (dummy.txt).
+
+import java.io.*;
+
+public class Act2 {
+    public static void main(String[] args) throws IOException, FileNotFoundException {
+        File inFile = new File("dummy.txt");
+        BufferedReader br = new BufferedReader(new FileReader(inFile));
+        
+        int ln = 5; 
+        int a = 1;
+
+        try{
+            String text;
+            while((text = br.readLine()) != null) {
+                System.out.println(text);
+                
+                if(a == ln){ 
+                    break;
+                }
+            a++;
+        }
+    }
+        catch(Exception e) {
+        
+            System.out.println("There is an error reading a file: ");
+            System.out.println(e.getMessage());
+        }
+        finally{
+        
+            br.close();
+        }
+    }
+}
