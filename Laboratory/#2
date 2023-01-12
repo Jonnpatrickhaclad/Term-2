@@ -1,5 +1,3 @@
-// 2. Write a Java program that will read and display in the console the first five lines of (dummy.txt).
-
 import java.io.*;
 
 public class LabAct2 {
